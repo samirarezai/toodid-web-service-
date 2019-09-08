@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تودید</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#00A67E" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<main>
+    <section class="verify">
+        <!--=====================top image=======================-->
+        <section class="image-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="assets/img/verif.gif" alt="image" class="image">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--=====================verify input=======================-->
+            <section class="verify-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content-box">
+                                <div class="title">
+                                    <p class="heading">کدچهاررقمی پیامک شده رو وارد کن ودرصفحه بعد روی دکمه "آنالیزچهره"بزن</p>
+                                    <p class="sms"><span class="text">
+                                        لطفا منتظر بمانید تا کد sms شود
+                                    </span>
+                                    <span class="detail">
+                                         <i class="time" id="time">60</i>
+                                        <i class="fa fa-clock-o icon-timer"></i>
+
+                                    </span>
+                                    </p>
+                                </div>
+                                <form class="form">
+                                    <div class="number-form">
+                                        <input name="verify-number" type="tel" id="verify-number" class="verify-number" onkeypress="return Enter(event)" placeholder="__ __ __ __" />
+                                        <i class="fa fa-envelope mobile-icon"></i>
+                                        <div class="error hidden"></div>
+                                    </div>
+                                    <div class="submit-form">
+                                        <div class="button-like">
+                                        <input class="verify-btn" type="button" name="verify-btn" value="تایید" id="verify-btn"  value="تایید"/>
+                                          <img src="assets/img/buffering.gif" class="icon_loading hidden" alt=""/>
+                                        </div>
+                                        <a class="number-edit" href="index.html">ویرایش شماره</a>
+
+                                    </div>
+                                </form>
+                                <div class="get-number">
+                                    <span class="text">شماره وارد شده:</span><span class="number_value" id="number_value"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </section>
+</main>
+<script src="assets/js/jquery-3.4.0.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/jquery.mask.min.js"></script>
+
+<script>
+    function Enter(event) {
+        var x = event.keyCode;
+        if (x == 13) {
+            event.preventDefault();
+            $("#verify-btn").trigger('click');
+        }
+    }
+    /*======================= stop browser back button using javascript======================*/
+    history.pushState(null, document.title, location.href);
+    window.addEventListener('popstate', function ()
+    {
+        history.pushState(null, document.title, location.href);
+    });
+</script>
+<script src="assets/js/verify.js"></script>
+</body>
+</html>

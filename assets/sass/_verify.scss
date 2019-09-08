@@ -1,0 +1,183 @@
+@import "mixins";
+@import "variable";
+.verify {
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  @include flex(column, nowrap, center, space-between);
+  .image-box {
+    background-color: $color-green;
+    @include flex(column, nowrap, center, center);
+    @include flex-grow(1);
+
+    .image {
+      max-width: 600px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .verify-wrapper {
+    width: 100%;
+    margin: 0 0 10px;
+
+
+    .content-box {
+      background-color: $color-green;
+      .title {
+        background-color: $color-green;
+        .heading {
+          @include font-source-sans(.9rem, $color-dark, 600, 1.5rem);
+          margin: 0;
+        }
+
+        .sms {
+          background-color: $color-green;
+          @include flex(row, nowrap, center, space-between);
+          padding: 0 15px;
+          margin: 0;
+
+          .text {
+            background-color: $color-green;
+            @include font-source-sans(.8rem, #fff, 400, 1rem);
+          }
+
+          .detail {
+            @include flex(row, nowrap, center, space-between);
+
+
+            .time {
+              padding-left: 10px;
+              margin: 15px 0 10px;
+              font-family: IRANSans;
+              @include font-source-sans(.8rem, #fff, 400, 1rem);
+            }
+
+            .icon-timer {
+
+            }
+
+
+          }
+        }
+      }
+
+
+      .form {
+        .number-form {
+          position: relative;
+
+          .mobile-icon {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            @include font-source-sans(2.2rem,#909090, 500, 2.2rem);
+          }
+
+
+          .verify-number {
+            width: 100%;
+            padding: 7px;
+            text-align: center;
+            @include font-source-sans(1.2rem, $color-dark,500,1.2rem);
+            @include radius(10px);
+            letter-spacing: 0px;
+            direction: ltr;
+            outline: none;
+            border: 2px solid $color-violet;
+            box-shadow: inset 0px 0px 3px 2px #eaeaea;
+min-height: 48px;
+
+
+            &::placeholder {
+              font-family: IRANSans;
+              @include font-source-sans(.9rem, #909090, 300, 1.2rem);
+            }
+          }
+
+
+        }
+        .submit-form {
+          @include flex(row, nowrap, center, space-between);
+          .button-like{
+            position: relative;
+            margin: 15px 0 10px 10px;
+            @include flex-grow(2);
+            .verify-btn {
+              width: 100%;
+              background-color: $color-violet;
+              display: block;
+
+              min-height: 40px;
+              @include transition(all .2s);
+              padding: 10px 15px;
+              @include radius(10px);
+              @include font-source-sans(1.2rem, #fff, 500, 1.2rem);
+              border: 0;
+              outline: 0;
+
+              &:focus {
+                background-color: $color-gray;
+                outline: 0;
+              }
+            }
+            .verify-btn.submit-animate{
+              @include animation3(.1s,3s, 1);
+              @include transition(all .3s);
+              @include ripple;
+            }
+            .icon_loading{
+              max-width: 50px;
+              width: 100%;
+              height: auto;
+              position: absolute;
+              top:-3px;
+              right: calc(50% - 25px);
+            }
+            .icon_loading.hidden{
+              display: none;
+            }
+          }
+
+           .number-edit{
+             text-decoration: none;
+             background-color: $color-gray;
+             display: block;
+             margin: 15px 0 10px;
+             padding: 10px 15px;
+             @include radius(10px);
+             @include font-source-sans(1rem,$color-dark,400,1rem);
+min-height: 40px;
+             border: 0;
+             outline: 0;
+             &:focus{
+               background-color:$color-gray;
+               outline: 0;
+           }
+
+         }
+
+        }
+      }
+      .get-number{
+        @include flex(row, nowrap, center,center);
+        margin: 5px 0;
+        .text{
+          @include font-source-sans(.9rem, $color-dark, 500, .9rem);
+        }
+.number_value{
+  @include font-source-sans(.9rem, $color-dark, 500, .9rem);
+}
+      }
+    }
+  }
+
+
+}
+.verify.change-height{
+  @include media-max($L){
+    @supports (-webkit-appearance:none) {
+      height: calc(100vh - 56px);
+    }
+  }
+}

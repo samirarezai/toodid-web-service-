@@ -1,0 +1,29 @@
+@font-face {
+  font-family: Mina;
+  src: url('../font-persian/Mina.ttf')
+}
+body{
+  font-family: IRANSans;
+  margin: 0;
+  padding: 0;
+text-align: center;
+  background-color: $color-green;
+  .error{
+    display: block;
+    color: red;
+    border: 1px solid red;
+    margin: 15px 0;
+    @include radius(10px);
+background-color: #fff;
+  }
+  .hidden{
+    display: none;
+  }
+  .success{
+    color: green;
+    border: 1px solid green;
+    margin: 3px 0;
+
+
+  }
+}
