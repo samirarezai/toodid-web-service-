@@ -1,0 +1,34 @@
+@import "mixins";
+@import "variable";
+
+html {
+  direction: rtl;
+  body {
+    font-family: IRANSans_Light;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: $color-background-green;
+    .error {
+      display: block;
+      color: red;
+      border: 0px solid red;
+      margin: 15px 0;
+      padding: 10px 0;
+      @include radius(10px);
+      background-color: #f54f40;
+      @include font-source-sans(.9rem, #fff, 300, .9rem);
+    }
+    .hidden {
+      display: none;
+    }
+    .success {
+      color: green;
+      border: 1px solid green;
+      margin: 3px 0;
+    }
+    .display-block{
+      display: block;
+    }
+  }
+}

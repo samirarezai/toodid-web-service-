@@ -1,0 +1,393 @@
+@import "mixins";
+@import "variable";
+
+.verify {
+  background-color: $color-background-green;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  @include flex(column, nowrap, center, space-between);
+  .image-box {
+    width: 100%;
+    padding: 0 10%;
+    background-color: transparent;
+    @include flex(column, nowrap, center, center);
+    @include flex-grow(1);
+    position: fixed;
+    top: 0;
+    right: 0;
+    .image {
+      max-width: 500px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .verify-wrapper {
+    width: 100%;
+    margin: 0 0 10px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    &:after{
+      content: '';
+      width:100%;
+      height: 100%;
+      background-color:$color-background-green ;
+      z-index: -3;
+      @include opacity(.5);
+      position: absolute;
+      top:0;
+      right: 0;
+    }
+    @include media-height-max(450px) {
+      bottom: -40px;
+    }
+    .content-box {
+      background-color: $color-background-green;
+
+      .title {
+        background-color:transparent;
+
+
+        .heading {
+          @include font-source-sans(.9rem, $color-dark, 600, 1.5rem);
+          margin: 0;
+        }
+
+        .sms {
+          background-color: transparent;
+          @include flex(row, nowrap, center, space-between);
+          padding: 0 15px;
+          margin: 0;
+
+          .text {
+            background-color: transparent;
+            @include font-source-sans(.8rem, #fff, 400, 1rem);
+          }
+
+          .detail {
+            @include flex(row, nowrap, center, space-between);
+
+
+            .time {
+              padding-left: 10px;
+              margin: 15px 0 10px;
+              font-family: IRANSans_Light;
+              @include font-source-sans(.8rem, #fff, 400, 1rem);
+            }
+
+            .icon-timer {
+
+            }
+
+
+          }
+        }
+      }
+
+
+      .form {
+        .number-form {
+          position: relative;
+
+          .mobile-icon {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            @include font-source-sans(2.2rem, #909090, 500, 2.2rem);
+          }
+
+
+          .verify-number {
+            width: 100%;
+            padding: 7px;
+            text-align: center;
+            @include font-source-sans(1.2rem, $color-dark, 500, 1.2rem);
+            @include radius(10px);
+            letter-spacing: 0px;
+            direction: ltr;
+            outline: none;
+            border: 1px solid $color-item-select-red;
+            box-shadow: inset 0px 0px 3px 2px #eaeaea;
+            min-height: 48px;
+
+
+            &::placeholder {
+              font-family: IRANSans;
+              @include font-source-sans(.9rem, #909090, 300, 1.2rem);
+            }
+          }
+
+
+        }
+
+        .submit-form {
+          @include flex(row, nowrap, center, space-between);
+
+          .button-like {
+            position: relative;
+            margin: 15px 0 10px 10px;
+            @include flex-grow(2);
+
+            .verify-btn {
+              width: 100%;
+              background-color:$color-submit-green;
+              display: block;
+              min-height: 48px;
+              @include transition(all .2s);
+              padding: 10px 15px;
+              @include radius(10px);
+              @include font-source-sans(1.2rem, #fff, 500, 1.2rem);
+              border: 0;
+              outline: 0;
+              &:focus {
+                background-color: $color-gray;
+                outline: 0;
+              }
+            }
+            .verify-btn.submit-animate {
+              /* @include animation3(.1s, 3s, 1);
+               @include transition(all .3s);
+               @include ripple;*/
+
+              @include animations(0,.5s,bounce,1,ease-in-out);
+              @include bounceIn;
+            }
+
+            .loading__overlay {
+              position: absolute;
+              bottom: 0;
+              top: 0;
+              left: 0;
+              right: 0;
+              background-color: transparent;
+              display: flex;
+              flex-flow: row wrap;
+              z-index: 3;
+
+              .loading-wrap {
+                display: block;
+                margin: auto;
+                width: 50px;
+                text-align: center;
+
+                .loading__bounce {
+                  width: 10px;
+                  height: 10px;
+                  background-color: $color-loading;
+                  border-radius: 100%;
+                  display: inline-block;
+                  @include animations(0s, 1.4s, sk-bouncedelay, infinite, ease-in-out);
+                  @include loading-animation;
+                }
+
+                .loading__bounce_1 {
+                  -webkit-animation-delay: -0.32s;
+                  -moz-animation-delay: -0.32s;
+                  -o-animation-delay: -0.32s;
+                  animation-delay: -0.32s;
+                }
+
+                .loading__bounce_2 {
+                  -webkit-animation-delay: -0.16s;
+                  -moz-animation-delay: -0.16s;
+                  -o-animation-delay: -0.16s;
+                  animation-delay: -0.16s;
+                }
+
+                .loading__bounce_3 {
+
+                }
+              }
+            }
+
+            .loading__overlay.hidden {
+              display: none;
+            }
+          }
+
+          .number-edit {
+            text-decoration: none;
+            background-color: $color-gray;
+            display: block;
+            margin: 15px 0 10px;
+            padding: 10px 15px;
+            @include radius(10px);
+            @include font-source-sans(1rem, $color-dark, 400, 1.7rem);
+            min-height: 48px;
+            border: 0;
+            outline: 0;
+
+            &:focus {
+              background-color: $color-gray;
+              outline: 0;
+            }
+
+          }
+
+        }
+
+        .get-number {
+          @include flex(row, nowrap, center, center);
+          margin: 5px 0;
+          min-height: 14px;
+
+          .text {
+            @include font-source-sans(.9rem, $color-dark, 500, .9rem);
+          }
+
+          .number_value {
+            @include font-source-sans(.9rem, $color-dark, 500, .9rem);
+          }
+        }
+      }
+
+    }
+  }
+
+
+}
+
+.verify.change-height {
+  @include media-max($L) {
+    height: calc(100vh - 56px);
+  }
+  @include media-height-max(450px) {
+    .verify-wrapper {
+      bottom: -40px;
+    }
+  }
+}
+
+.verify.verify-safari {
+  display: block;
+
+  .image-box {
+    display: block;
+
+    .image {
+    }
+  }
+
+  .verify-wrapper {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    .content-box {
+      .title {
+        .heading {
+        }
+
+        .sms {
+          display: block;
+          width: 100%;
+
+          .text {
+            width: 80%;
+          }
+
+          .detail {
+            display: inline-block;
+            width: 20%;
+
+            .time {
+              width: 50%;
+            }
+
+            .icon-timer {
+              width: 50%;
+            }
+          }
+        }
+      }
+
+
+      .form {
+        .number-form {
+          .mobile-icon {
+          }
+
+
+          .verify-number {
+            &::placeholder {
+            }
+          }
+
+
+        }
+
+        .submit-form {
+          display: block;
+          height: 65px;
+          width: 100%;
+
+          .button-like {
+            float: right;
+            height: 40px;
+            width: 50%;
+            display: inline-block;
+
+            .verify-btn {
+              height: 40px;
+              width: 100%;
+            }
+            .loading__overlay{
+              top:12px;
+
+              .loading-wrap{
+                .loading__bounce{
+                }
+                .loading__bounce_1{
+
+                }
+                .loading__bounce_2{
+                }
+                .loading__bounce_3{
+
+                }
+              }
+            }
+
+            .verify-btn.submit-animate {
+            }
+
+            .icon_loading {
+              margin-right: 0%;
+              height: 40px;
+            }
+
+            .icon_loading.hidden {
+            }
+          }
+
+          .number-edit {
+            float: left;
+            height: 40px;
+            width: 35%;
+            display: inline-block;
+          }
+        }
+
+        .get-number {
+          display: block;
+          text-align: center;
+
+          .text {
+
+            text-align: center;
+          }
+
+          .number_value {
+          }
+        }
+      }
+
+    }
+  }
+
+
+}
